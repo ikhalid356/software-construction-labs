@@ -1,0 +1,93 @@
+﻿<Window x:Class="LMS.Catalogue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS"
+        mc:Ignorable="d"
+        Title="Catalogue"
+        Height="400"
+        Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Text="Team member 1 can put searchbox in grid row 0" />
+
+        <TextBlock Grid.Row="1"
+                   Name="fineDueBox"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   Text="Fine Due: 0" />
+        
+        <TextBlock Grid.Row="1"
+                   Grid.Column="2"
+                   Name="finePayedBox"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Text="Fine Payed: 0" />
+
+        <TextBlock Grid.Row="2"
+                   Grid.ColumnSpan="2"
+                   Name="InfoBox"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Text="Enter Artifact ID below to issue an artifact" />
+        
+        <TextBox Grid.Row="3"
+                 Name="IdBox"
+                 Margin="2"
+                 Text="Enter Artifact ID..."/>
+        
+        <Button Name="IssueButton"
+                Margin="2"
+                Grid.Row="3"
+                Grid.Column="1" 
+                Content="Issue"
+                Click="IssueButton_Click" />
+
+        <TextBlock Grid.Row="4"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Text="Catalogue"
+                   FontSize="20" />
+        
+        <DataGrid x:Name="table"
+                  Grid.Row="5"
+                  Grid.ColumnSpan="2"
+                  ItemsSource="{Binding LoadData}"
+                  AutoGenerateColumns="True">
+        </DataGrid>
+
+        <TextBlock Grid.Row="6"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Text="Issued and Owned Artifacts"
+                   FontSize="20" />
+
+        <DataGrid x:Name="issuedTable"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="7"
+                  ItemsSource="{Binding LoadDataIssued}"
+                  AutoGenerateColumns="True">
+        </DataGrid>
+
+
+    </Grid>
+</Window>
