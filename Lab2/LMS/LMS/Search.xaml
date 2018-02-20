@@ -1,0 +1,30 @@
+﻿<Window x:Class="LMS.Search"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS"
+        mc:Ignorable="d"
+        Title="Search" Height="499.342" Width="807.237">
+    <Grid Height="26">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="185*"/>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="493*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="ALabel" Content="Search using an author" HorizontalAlignment="Left" Height="31" Margin="75,-182,0,0" VerticalAlignment="Top" Width="170" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxA" HorizontalAlignment="Left" Height="27" Margin="65,-178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" TextChanged="textBoxA_TextChanged" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label x:Name="Tlabel" Content="Search using a Title" HorizontalAlignment="Left" Margin="75,-45,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.271,-0.535" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxT" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="65,-47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" TextChanged="textBoxT_TextChanged" Grid.Column="1"/>
+        <Label x:Name="label" HorizontalAlignment="Left" Margin="112,10,0,0" VerticalAlignment="Top">
+            <Label x:Name="label1" Content="Label"/>
+        </Label>
+        <Label x:Name="GLabel" Content="Search using a Genre" HorizontalAlignment="Left" Margin="75,108,0,-108" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxG" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="65,114,0,-114" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" TextChanged="textBoxG_TextChanged" Grid.Column="1"/>
+        <DataGrid x:Name="StableA" HorizontalAlignment="Left" Margin="17,-137,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="72" Width="767"/>
+        <TextBox x:Name="Err" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="358,212,0,-209" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="StableT" HorizontalAlignment="Left" Margin="17,11,0,-52" VerticalAlignment="Top" Height="67" Width="767" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="StableG" HorizontalAlignment="Left" Height="87" Margin="17,148,0,-209" VerticalAlignment="Top" Width="767" Grid.ColumnSpan="3"/>
+
+    </Grid>
+</Window>

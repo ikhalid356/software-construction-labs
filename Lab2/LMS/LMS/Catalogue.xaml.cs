@@ -118,5 +118,12 @@ namespace LMS
                 InfoBox.Text = "Cannot Issue, Limit Reached!";
             }
         }
+
+        private void Sbutton_Click(object sender, RoutedEventArgs e)
+        {
+            Search search1 = new Search();
+            search1.Show();
+            this.Close();
+        }
     }
 }

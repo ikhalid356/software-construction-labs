@@ -20,39 +20,39 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="143*" />
+            <ColumnDefinition Width="153*" />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Text="Team member 1 can put searchbox in grid row 0" />
+                   Text="Team member 1 can put searchbox in grid row 0" Height="16" Margin="15,0" Width="256" />
 
         <TextBlock Grid.Row="1"
                    Name="fineDueBox"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center"
-                   Text="Fine Due: 0" />
-        
+                   Text="Fine Due: 0" Height="16" Margin="113,0" Width="60" />
+
         <TextBlock Grid.Row="1"
-                   Grid.Column="2"
+                   Grid.Column="1"
                    Name="finePayedBox"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Text="Fine Payed: 0" />
+                   Text="Fine Payed: 0" Height="16" Margin="119,0" Width="68" />
 
         <TextBlock Grid.Row="2"
                    Grid.ColumnSpan="2"
                    Name="InfoBox"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Text="Enter Artifact ID below to issue an artifact" />
-        
+                   Text="Enter Artifact ID below to issue an artifact" Height="16" Margin="186,0" Width="220" />
+
         <TextBox Grid.Row="3"
                  Name="IdBox"
-                 Margin="2"
+                 Margin="3,3,1,1"
                  Text="Enter Artifact ID..."/>
-        
+
         <Button Name="IssueButton"
                 Margin="2"
                 Grid.Row="3"
@@ -65,8 +65,8 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    Text="Catalogue"
-                   FontSize="20" />
-        
+                   FontSize="20" Height="27" Margin="251,0" Width="90" />
+
         <DataGrid x:Name="table"
                   Grid.Row="5"
                   Grid.ColumnSpan="2"
@@ -79,7 +79,7 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    Text="Issued and Owned Artifacts"
-                   FontSize="20" />
+                   FontSize="20" Height="27" Margin="176,0" Width="240" />
 
         <DataGrid x:Name="issuedTable"
                   Grid.ColumnSpan="2"
@@ -87,6 +87,7 @@
                   ItemsSource="{Binding LoadDataIssued}"
                   AutoGenerateColumns="True">
         </DataGrid>
+        <Button x:Name="Sbutton" Content="Search for an item" Grid.Column="1" Margin="2,84,2,-67" Grid.Row="7" VerticalAlignment="Top" Click="Sbutton_Click"/>
 
 
     </Grid>
