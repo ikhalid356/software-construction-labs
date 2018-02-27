@@ -16,6 +16,7 @@
     <div>
     
     </div>
+        <h1 style="text-align:center; background-color: powderblue; font-size: xx-large; height: 61px; margin-top: 0px;">Welcome to eCafe</h1>
     <h1 style="text-align:center; background-color: powderblue; font-size: xx-large; height: 61px; margin-top: 0px;">Our Menu</h1>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Height="109px" Width="672px">
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -34,13 +35,20 @@
         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="673px">
         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
  				<Columns>
-					<asp:BoundField DataField="FoodID" HeaderText="ID" />
-					<asp:BoundField DataField="FName" HeaderText="Item" />
+					<asp:BoundField DataField="ID" HeaderText="ID" />
+					<asp:BoundField DataField="Item" HeaderText="Item" />
 					<asp:BoundField DataField="Price" HeaderText="Price" />
 					
                     <asp:ButtonField Text="Remove" CommandName="Select" ItemStyle-Width="30"  />
 				</Columns>
         </asp:GridView>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Login as admin/staff" />
+        </p>
     </form>
     </body>
 </html>

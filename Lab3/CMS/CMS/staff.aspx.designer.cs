@@ -10,7 +10,7 @@
 namespace CMS {
     
     
-    public partial class Menu {
+    public partial class staff {
         
         /// <summary>
         /// form1 control.
@@ -31,22 +31,49 @@ namespace CMS {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Button2 control.
+        /// deleteBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.TextBox deleteBox;
         
         /// <summary>
-        /// Label1 control.
+        /// delete_food_btn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button delete_food_btn;
+        
+        /// <summary>
+        /// foodnameBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox foodnameBox;
+        
+        /// <summary>
+        /// priceBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox priceBox;
+        
+        /// <summary>
+        /// add_food_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button add_food_btn;
         
         /// <summary>
         /// GridView2 control.
@@ -58,12 +85,21 @@ namespace CMS {
         protected global::System.Web.UI.WebControls.GridView GridView2;
         
         /// <summary>
-        /// Button3 control.
+        /// orderBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.TextBox orderBox;
+        
+        /// <summary>
+        /// complete_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button complete_btn;
     }
 }
