@@ -14,6 +14,8 @@ namespace CMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (login.userType == "" || login.userType == "owner")
+                Response.Redirect("~/login.aspx");
             Load_Tables();
         }
         void Load_Tables()
@@ -31,12 +33,18 @@ namespace CMS
                     GridView1.DataBind();
                 }
             }
+            cmd = new MySqlCommand("SELECT * FROM orders WHERE IsComplete='NO';", con);
+            using (MySqlDataAdapter adp = new MySqlDataAdapter())
+            {
+                adp.SelectCommand = cmd;
+                using (DataTable dt = new DataTable())
+                {
+                    adp.Fill(dt);
+                    GridView2.DataSource = dt;
+                    GridView2.DataBind();
+                }
+            }
             con.Close();
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         protected void delete_food_btn_Click(object sender, EventArgs e)
@@ -59,6 +67,23 @@ namespace CMS
             if (cmd.ExecuteNonQuery() != 0)
                 Load_Tables();
             con.Close();
+        }
+
+        protected void complete_btn_Click(object sender, EventArgs e)
+        {
+            MySqlConnection con = new MySqlConnection(login.connectionString);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("UPDATE orders SET IsComplete='YES' WHERE OrderID=" +
+                    orderBox.Text + ";", con);
+
+            if (cmd.ExecuteNonQuery() != 0)
+                Load_Tables();
+            con.Close();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -38,10 +38,10 @@ namespace CMS
                     userID = cmd.ExecuteScalar().ToString();
                     cmd = new MySqlCommand("SELECT UType FROM user WHERE Email=\"" + emailBox.Text + "\"", con);
                     userType = cmd.ExecuteScalar().ToString();
-                    //Catalogue catalogue = new Catalogue();
-                    //catalogue.Show();
-                    //this.Close();
-                    Response.Redirect("~/staff.aspx");
+                    if (userType == "staff" || userType == "admin")
+                        Response.Redirect("~/staff.aspx");
+                    else if (userType == "owner")
+                        Response.Redirect("~/admin.aspx");
                 }
                 else
                     ErrorBox.Text = "Incorrect email or password";
@@ -49,7 +49,6 @@ namespace CMS
             }
             catch (Exception exp)
             {
-
                 ErrorBox.Text = "Email Does not exist";
             }
         }
@@ -73,10 +72,10 @@ namespace CMS
                     cmd = new MySqlCommand("SELECT UserID FROM user WHERE Email=\"" + emailBox.Text + "\"", con);
                     userID = cmd.ExecuteScalar().ToString();
                     userType = typeBox.SelectedValue;
-                    //Catalogue catalogue = new Catalogue();
-                    //catalogue.Show();
-                    //this.Close();
-                    Response.Redirect("~/staff.aspx");
+                    if (userType == "staff" || userType == "admin")
+                        Response.Redirect("~/staff.aspx");
+                    else if (userType == "owner")
+                        Response.Redirect("~/admin.aspx");
                 }
                 con.Close();
             }

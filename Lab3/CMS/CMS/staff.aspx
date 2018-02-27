@@ -34,6 +34,23 @@
         <asp:TextBox ID="priceBox" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
         <asp:Button ID="add_food_btn" runat="server" Text="Add" Width="55px" OnClick="add_food_btn_Click" />
+        <br />
+        <br />
+        Order List<asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+            <SortedDescendingHeaderStyle BackColor="#242121" />
+        </asp:GridView>
+        <br />
+        Order Completed:&nbsp;&nbsp;&nbsp; OrderID:&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="orderBox" runat="server" Width="36px"></asp:TextBox>
+    &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="complete_btn" runat="server" Text="Mark as complete" OnClick="complete_btn_Click" />
     </form>
 </body>
 </html>
