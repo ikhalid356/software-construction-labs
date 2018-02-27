@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="CMS.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="CMS.Order" %>
 
 <!DOCTYPE html>
 
@@ -12,7 +12,5 @@
     
     </div>
     </form>
-    
-    
 </body>
 </html>

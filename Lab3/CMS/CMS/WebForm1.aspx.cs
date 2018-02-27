@@ -11,8 +11,11 @@ namespace CMS
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e) { }
-        public static string connectionString = "server=localhost;user id=root;password=root;persistsecurityinfo=True;database=lab2new";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Menu.aspx");
+        }
+        public static string connectionString = "server=localhost;user id=root;password=root;persistsecurityinfo=True;database=lab3";
         public static string userID = ""; 
     }
 }
