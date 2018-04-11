@@ -1,15 +1,19 @@
-package lab7;
+package lab7combo;
 
 import java.sql.*;
 import java.util.Scanner;
 
-public class Lab7 {
+/**
+ *
+ * @author dell
+ */
+public class lab7combo {
 
     // DB Constants
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-    static final String DB_URL = "jdbc:mysql://localhost/lab3";
+    static final String DB_URL = "jdbc:mysql://localhost/new11";
     static final String USER = "root";
-    static final String PASS = "1234";
+    static final String PASS = "seecs123";
     
     public static void main(String[] args) {
         try{
@@ -53,7 +57,8 @@ public class Lab7 {
             if(inp1.equals(res.getString("Pass"))){
                 String userType = res.getString("UType");
                 if (userType.equals("staff") || userType.equals("admin"))
-                    return; //TODO KHALID'S FUNCTION
+                    //TODO KHALID'S FUNCTION
+                    Staff_view(conn);
                 else if (userType.equals("owner"))
                     owner_view(conn);
             }
@@ -91,7 +96,8 @@ public class Lab7 {
             st.executeUpdate("INSERT INTO `user` (Email, Pass, UType) VALUES ('" + inp+ "','" + inp1 + "','" + inp2 + "')");
             String userType = inp2;
             if (userType.equals("staff") || userType.equals("admin"))
-                return; //TODO KHALID'S FUNCTION
+                 //TODO KHALID'S FUNCTION
+                Staff_view(conn);
             else if (userType.equals("owner"))
                 owner_view(conn);
             }
@@ -118,4 +124,159 @@ public class Lab7 {
             System.out.print("Total Orders: " + res.getInt("count(*)"));
         System.out.println("");
     }
-}
+    
+
+    
+
+
+//Khalidpart
+
+   
+    public static void Staff_view(Connection conn) {
+        loop: while(true){
+        System.out.println("1- To Display Food Items");
+        System.out.println("2- To Add Food Items");
+        System.out.println("3- To Delete Food Items");
+        System.out.println("4- To Mark Order Complete");
+        System.out.println("5- To display Incomplete Orders");
+        System.out.println("0- To Terminate");
+       
+        Scanner in = new Scanner(System.in); 
+        System.out.println("Please Select from the Above Options:");
+        int ch = in.nextInt();
+        
+    
+        switch(ch)
+        {
+             case 0: {
+                break loop;
+            }
+            case 1: {
+                
+                //displayFoodItems();
+                   
+        try{
+            System.out.println("Connected:");
+            Statement stm = (Statement) conn.createStatement();
+            String sql= "Select FoodID, FName, Price from Food";
+            ResultSet rs= stm.executeQuery(sql);
+            while (rs.next()){
+                System.out.print(rs.getString("FoodID"));
+                System.out.print(" | ");
+                System.out.print(rs.getString("Fname"));
+                System.out.print(" | ");
+                System.out.print(rs.getString("Price"));
+                System.out.println("");
+            }
+        
+        }
+        catch (SQLException e){
+            System.err.println(e);
+            }
+      
+                break;
+            }
+    
+            case 2: {
+                //AddFood();
+                  try{
+             Statement stm = (Statement) conn.createStatement();
+             Scanner input = new Scanner(System.in);
+             System.out.println("Enter The Food Name to Add the Item : ");
+             String fname = input.nextLine(); 
+             System.out.println("Enter The Food Price: ");
+             String price = input.nextLine();
+             
+             String sql = "INSERT INTO `food` (FName, Price) VALUES ('" +
+                    fname + "','" + price + "');";
+            stm.executeUpdate(sql);
+             System.out.println("Success'!");
+    }
+    
+     catch (SQLException e){
+            System.err.println(e);
+        }
+                break;
+            }
+            case 3: {
+                //DeleteItem();
+                try{
+             Statement stm = (Statement) conn.createStatement();
+             Scanner input = new Scanner(System.in);
+             System.out.println("Enter The Food ID to Delete the Item : ");
+             String f_id = input.nextLine(); 
+                         
+             String sql = "DELETE FROM Food WHERE FoodID = '"+f_id+"' ";
+                    
+            stm.executeUpdate(sql);
+             System.out.println("Success'!");
+    }
+    
+     catch (SQLException e){
+            System.err.println(e);
+        }
+                break;
+            }
+            case 4: {
+               // markComplete();
+               
+    try{
+      
+            Statement stm = (Statement) conn.createStatement();
+             Scanner input = new Scanner(System.in);
+             System.out.println("Enter The Order ID to Mark it Complete: ");
+             String O_id = input.nextLine(); 
+             String sql = "UPDATE Orders SET IsComplete = 'YES' where OrderID= '"+O_id+"' ";          
+
+                    
+            stm.executeUpdate(sql);
+             System.out.println("Success'!");
+    }
+    
+            catch (SQLException e){
+            System.err.println(e);
+            }
+            break;
+            }
+            
+            case 5: {
+                //show_incompleteOrders();
+                try{
+   
+            Statement stm = (Statement) conn.createStatement();
+            String sql = "SELECT * FROM Orders where IsComplete = 'NO'";
+            ResultSet rs= stm.executeQuery(sql);
+            while (rs.next()){
+                System.out.print(rs.getString("OrderID"));
+                System.out.print(" | ");
+                System.out.print(rs.getString("FoodID"));
+                System.out.print(" | ");
+                System.out.print(rs.getString("Price"));
+                System.out.print(" | ");
+                System.out.print(rs.getString("Otype"));
+                System.out.print(" | ");
+                System.out.print(rs.getString("Address"));
+                System.out.print(" | ");
+                System.out.print(rs.getString("DeliveryTime"));
+                System.out.print(" | ");
+                System.out.print(rs.getString("IsComplete"));
+                System.out.print(" | ");
+                System.out.println("");
+            }
+
+                    
+            stm.executeQuery(sql);
+             System.out.println("Success'!");
+    }
+    
+     catch (SQLException e){
+            System.err.println(e);
+        }
+                break;
+            }
+            default:
+                System.out.println("Invalid Option");
+        }
+    
+    }
+ }
